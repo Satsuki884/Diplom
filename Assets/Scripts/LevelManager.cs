@@ -5,12 +5,20 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum LevelType
+{
+    Question,
+    Check,
+    Table
+}
+
 public class Level
 {
     public string Image;
     public string Exercise;
     public int Point;
-    public string Answer;
+    public string[] Answers;
+    public LevelType Type;
 }
 
 public class LevelManager : MonoBehaviour
@@ -39,43 +47,50 @@ public class LevelManager : MonoBehaviour
         {
             Exercise = "Запиши через пробіл числа від 20 до 30, пропускаючи кожне друге число.",
             Point = 1,
-            Answer = "1"
+            Answers = new string[] { "1" },
+            Type = LevelType.Question
         },
         new Level
         {
             Exercise = "Запиши через пробіл кожне п'яте число після 50 до 80.",
             Point = 1,
-            Answer = "1"
+            Answers = new string[] { "1" },
+            Type = LevelType.Question
         },
         new Level
         {
             Exercise = "Прослідкуй за патерном: 5, 10, 15, __, 25. Яке число йде після 15?",
             Point = 1,
-            Answer = "1"
+            Answers = new string[] { "1" },
+            Type = LevelType.Question
         },
         new Level
         {
             Exercise = "Запиши через пробіл числа від 60 до 70, пропускаючи кожне третє число.",
             Point = 1,
-            Answer = "2"
+            Answers = new string[] { "2" },
+            Type = LevelType.Question
         },
         new Level
         {
             Exercise = "Прослідкуй за патерном: 2, 4, 6, 8, __. Яке число йде після 8?",
             Point = 1,
-            Answer = "1"
+            Answers = new string[] { "1" },
+            Type = LevelType.Question
         },
         new Level
         {
             Exercise = "Запиши через пробіл числа від 5 до 20, пропускаючи кожне 4.",
             Point = 1,
-            Answer = "1"
+            Answers = new string[] { "1" },
+            Type = LevelType.Question
         },
         new Level
         {
             Exercise = "Записати через пробіл у лінію числа від меншого до більшого( 89, 13, 6, 54, 9, 61, 52, 40, 48, 12).",
             Point = 2,
-            Answer = "2"
+            Answers = new string[] { "2" },
+            Type = LevelType.Question
         }
     };
 
@@ -134,10 +149,21 @@ public class LevelManager : MonoBehaviour
     private void CheckAnswer(Level level)
     {
         var answer = inputfield.text;
-        if(answer == level.Answer)
+        if (level.Type == LevelType.Question) 
         {
-            range += level.Point;
+            if(answer == level.Answers[0])
+            {
+                range += level.Point;
+            } 
         }
+        else
+        {
+            foreach(var item in level.Answers)
+            {
+
+            }
+        }
+
         inputfield.text = "";
     }
 

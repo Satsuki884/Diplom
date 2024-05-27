@@ -16,10 +16,22 @@ public class LevelSelector : MonoBehaviour
         // levelText.text = level.ToString();
     }
 
-    public void OpenScene()
+    public void OpenScene(string typeLevel)
     {
         selectedLevel = level;
-        SceneManager.LoadScene("UniversalLevel");
+        Debug.Log(typeLevel);
+        if(typeLevel == "quest")
+        {
+            SceneManager.LoadScene("UniversalLevel");
+        } 
+        /*else if(typeLevel == "table")
+        {
+            SceneManager.LoadScene("UniversalLevelTable");
+        }*/
+        else if (typeLevel == "check")
+        {
+            SceneManager.LoadScene("UniversalLevelCheck");
+        }
 
     }
 }

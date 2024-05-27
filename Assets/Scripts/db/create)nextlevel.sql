@@ -2,9 +2,11 @@ CREATE TABLE nextlevel (
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     idnextlevel INT UNIQUE NOT NULL,
     idlevel INT UNIQUE NOT NULL,
-    FOREIGN KEY (idnextlevel) REFERENCES level(idlevel),
-    FOREIGN KEY (idlevel) REFERENCES level(idlevel)
+    FOREIGN KEY (idnextlevel) REFERENCES Level(LevelId),
+    FOREIGN KEY (idlevel) REFERENCES Level(LevelId)
 );
+
+drop table nextlevel
 
 DELIMITER 
 CREATE TRIGGER tr_check_idlevel_idnextlevel
