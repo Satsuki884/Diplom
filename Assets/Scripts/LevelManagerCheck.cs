@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DataBaseLayer;
 
 
 
@@ -30,6 +31,8 @@ public class LevelManagerCheck : MonoBehaviour
     public ExitPanelController exitPanel;
     public GameObject resultPanel;
     public TMP_Text resultText;
+
+
 
     public Level[] levels = new Level[]
     {

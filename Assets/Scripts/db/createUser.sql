@@ -13,7 +13,6 @@ Create table User(
     isArmor bool not null default 0,
     isAmulet bool not null default 0,
     isAura bool not null default 0,
-    grade int default 0,
     FOREIGN KEY (imageId) REFERENCES Image(imageId)
     
 );

@@ -1,5 +1,6 @@
-INSERT INTO level (name, idimage, maxRate, grade, isBoss, isCompleted)
-VALUES('level5',default, 0, 0, false, false);
+use diplom;
+INSERT INTO level (name, imageId, max_rate, grade, isBoss, isCompleted, isAvailable, stoneId)
+VALUES('level12',1, 12, 0, true, false, false, 1);
 
 
 

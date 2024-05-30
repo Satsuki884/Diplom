@@ -1,2 +1,3 @@
-INSERT INTO bosslevel (idlevel, mingrade)
-VALUES(18,180);
+use diplom;
+INSERT INTO image (image)
+VALUES("aura");
